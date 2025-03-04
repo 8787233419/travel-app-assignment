@@ -1,0 +1,34 @@
+"""
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-5">
+    <h2 class="text-center">Available Travel Options</h2>
+    <table class="table table-bordered mt-3">
+        <thead class="table-dark">
+            <tr>
+                <th>Type</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Date & Time</th>
+                <th>Price</th>
+                <th>Seats</th>
+                <th>Action</th>
+            </tr>
+        </thead>  
+        <tbody>
+            {% for travel in travel_options %}
+            <tr>
+                <td>{{ travel.travel_type }}</td>
+                <td>{{ travel.source }}</td>
+                <td>{{ travel.destination }}</td>
+                <td>{{ travel.date_time }}</td>
+                <td>{{ travel.price }}</td>
+                <td>{{ travel.available_seats }}</td>
+                <td><a href="{% url 'book_travel' travel.travel_id %}">Book</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+</table>
+{% endblock %}
+"""
